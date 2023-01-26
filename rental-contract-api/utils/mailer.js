@@ -16,18 +16,13 @@ const transporter = nodemailer.createTransport(
 );
 
 async function mailer (message) {
-  transporter.sendMail(message, (err, info) => {
-    if (err) return console.log(err)
-    return info
-    // console.log('Письмо отправлено:', info )
+  transporter.sendMail(message, (error, info) => {
+    if (error) return error
+    console.log(`Почта отправлена на адрес: ${info.accepted}`)
+
   })
 }
 
 module.exports = mailer
 
-// const mailOptions = {
-//   from: 'The Idea project',
-//   to: 'st_eugene@mail.ru',
-//   subject: 'Send message from project',
-//   text: 'Hello',
-// };
+

@@ -22,21 +22,50 @@ app.post('/create-pdf', (req, res) => {
 })
 
 app.post('/send-email', (req, res) => {
-  const message = {
-    from: `${req.body.name} <st_eugene@mail.ru>`,
-    to: 'st_eugene@mail.ru',
-    subject: 'Send message from project',
-    text: `${req.body.name}`,
-  }
-  mailer(message)
-    .then(() => {
-      console.log('then')
-      res.status(201).send({'message': 'отправлено'});
-      return
-    })
-    .catch(() => {
-      console.log('catch')
-    });
+  const name = req.body.name
+  pdf.create(pdfPatter(req.body), {}).toFile(`agreements/${name}.pdf`, (err) => {
+    if (err) {
+      res.send(Promise.reject())
+    }
+    Promise.resolve()
+    const message = {
+      from: `${name} <st_eugene@mail.ru>`,
+      to: 'st_eugene@mail.ru',
+      subject: 'Send message from project',
+      text: `${name}`,
+      attachments: [
+        {
+          path: `agreements/${name}.pdf`
+        }
+      ]
+    }
+    mailer(message)
+      .then((info) => {
+        // console.log(info)
+        res.status(201).send({'message': 'отправлено'});
+        return
+      })
+      .catch(() => {
+        console.log('catch')
+      });
+  })
+
+
+  // const message = {
+  //   from: `${name} <st_eugene@mail.ru>`,
+  //   to: 'st_eugene@mail.ru',
+  //   subject: 'Send message from project',
+  //   text: `${name}`,
+  // }
+  // mailer(message)
+  //   .then((info) => {
+  //     console.log(info)
+  //     res.status(201).send({'message': 'отправлено'});
+  //     return
+  //   })
+  //   .catch(() => {
+  //     console.log('catch')
+  //   });
 })
 
 app.listen(3000, () => {
