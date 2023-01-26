@@ -1,0 +1,20 @@
+{
+  "name": "rental-contract-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon start"
+  },
+  "author": "stEugene",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "expres": "^0.0.5",
+    "html-pdf": "^3.0.1",
+    "nodemailer": "^6.9.0",
+    "nodemon": "^2.0.20"
+  }
+}
