@@ -11,12 +11,14 @@
   cursor: crosshair;
 }
 .signatureCreate__buttons {
+  width: 200px;
+  margin: auto;
   padding: 10px 0 10px 0;
   display: flex;
   justify-content: space-between;
 }
 .signatureCreate__button{
-  width: 100px;
+  width: 90px;
   height: 32px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, .15);
   background-color: rgb(241, 241, 241);

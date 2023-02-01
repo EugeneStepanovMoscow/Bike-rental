@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Asap';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('../Fonts/Asap-Bold.ttf') format('ttf')
+}
+@font-face {
+  font-family: 'Asap';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../Fonts/Asap-Medium.ttf') format('ttf')
+}
+@font-face {
+  font-family: 'Asap';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../Fonts/Asap-Regular.ttf') format('ttf')
+}
